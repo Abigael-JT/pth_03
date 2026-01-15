@@ -127,10 +127,11 @@ public final class TableSyntaxTests {
         final String xpathExp = "/root/transformStatement/tableTransformation/t_table_wcfieldListParameter/t_table_fieldType";
 
         final NodeList nodesA = (NodeList) pstu.xpathQueryFile(fileName, xpathExp, false);
-        // Check that 3 found
-        Assertions.assertEquals(3,nodesA.getLength());
+        // Check that 4 found
+        Assertions.assertEquals(4,nodesA.getLength());
         Assertions.assertEquals("*",nodesA.item(0).getTextContent());
         Assertions.assertEquals("*foo",nodesA.item(1).getTextContent());
-        Assertions.assertEquals("ba*",nodesA.item(2).getTextContent());
+        Assertions.assertEquals("foo*bar",nodesA.item(2).getTextContent());
+        Assertions.assertEquals("ba*",nodesA.item(3).getTextContent());
     }
 }
