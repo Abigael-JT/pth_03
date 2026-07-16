@@ -1,4 +1,4 @@
-/*
+<!-- /*
  * Teragrep Data Processing Language Parser Library PTH-03
  * Copyright (C) 2019-2026  Suomen Kanuuna Oy
  *
@@ -42,53 +42,5 @@
  * To the extent this program is licensed as part of the Commercial versions of
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
- */
-parser grammar DPLParserTransform_sort;
-
-sortTransformation
-        : COMMAND_MODE_SORT (t_sort_numberType | t_sort_limitParameter | t_sort_dParameter | COMMA? t_sort_sortByClauseInstruction)*
-        ;
-
-t_sort_sortByClauseInstruction
-        : (t_sort_byMethodAuto|t_sort_byMethodStr|t_sort_byMethodIp|t_sort_byMethodNum)
-        | ((t_sortMinusOption | t_sortPlusOption)? sortFieldType)
-        ;
-
-t_sort_dParameter
-        : COMMAND_SORT_MODE_D
-        | COMMAND_SORT_MODE_DESC
-        ;
-
-t_sort_limitParameter
-        : COMMAND_SORT_MODE_LIMIT numberType
-        ;
-
-t_sort_byMethodAuto
-        : ( (t_sortMinusOption | t_sortPlusOption)? COMMAND_SORT_MODE_AUTO ) COMMAND_SORT_MODE_PARENTHESIS_L fieldType COMMAND_SORT_MODE_PARENTHESIS_R
-        ;
-
-t_sort_byMethodStr
-        : ( (t_sortMinusOption | t_sortPlusOption)? COMMAND_SORT_MODE_STR ) COMMAND_SORT_MODE_PARENTHESIS_L fieldType COMMAND_SORT_MODE_PARENTHESIS_R
-        ;
-
-t_sort_byMethodIp
-        :  (t_sortMinusOption | t_sortPlusOption)? COMMAND_SORT_MODE_IP COMMAND_SORT_MODE_PARENTHESIS_L fieldType COMMAND_SORT_MODE_PARENTHESIS_R
-        ;
-
-t_sort_byMethodNum
-        : (t_sortMinusOption | t_sortPlusOption)? COMMAND_SORT_MODE_NUM  COMMAND_SORT_MODE_PARENTHESIS_L fieldType COMMAND_SORT_MODE_PARENTHESIS_R
-        ;
-
-t_sortMinusOption
-        : COMMAND_SORT_MODE_MINUS
-        ;
-
-t_sortPlusOption
-        : COMMAND_SORT_MODE_PLUS
-        ;
-
-t_sort_numberType
-        : COMMAND_SORT_MODE_NUMBER
-        ;
-
-
+ */ -->
+| sort limit=2.345 foobar
