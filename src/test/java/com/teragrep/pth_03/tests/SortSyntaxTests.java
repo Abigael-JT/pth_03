@@ -347,14 +347,14 @@ public class SortSyntaxTests {
     @ValueSource(strings = {
             "sortdoublelimitparameter",
     })
-    void testSortDoubleLimitParameter(String arg) throws Exception {
+    void testSortDoubleLimitParameter(String arg) {
         ParserStructureTestingUtility pstu = new ParserStructureTestingUtility();
         String fileName = "src/test/resources/antlr4/commands/sort/" + arg + ".txt";
         String limitPath = "/root/transformStatement/sortTransformation/t_sort_limitParameter/numberType";
         String sortByPath = "/root/transformStatement/sortTransformation/t_sort_sortByClauseInstruction/sortFieldType";
 
-        final NodeList limitNode = (NodeList) pstu.xpathQueryFile(fileName, limitPath, false);
-        final NodeList sortByNode = (NodeList) pstu.xpathQueryFile(fileName, sortByPath, false);
+        final NodeList limitNode = Assertions.assertDoesNotThrow(() -> (NodeList) pstu.xpathQueryFile(fileName, limitPath, false));
+        final NodeList sortByNode = Assertions.assertDoesNotThrow(() -> (NodeList) pstu.xpathQueryFile(fileName, sortByPath, false));
 
         Assertions.assertEquals(1, limitNode.getLength());
         Assertions.assertEquals("2.345",limitNode.item(0).getTextContent());
